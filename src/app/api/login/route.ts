@@ -9,7 +9,7 @@ type Body = {
 
 export async function POST(request: NextRequest) {
 	const body = (await request.json()) as Body;
-	const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+	const baseUrl = process.env.API_URL;
 	const response = await fetch(`${baseUrl}`, {
 		method: "POST",
 		headers: {

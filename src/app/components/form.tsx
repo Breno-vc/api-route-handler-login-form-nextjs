@@ -13,7 +13,9 @@ export default function Formulario() {
       },
       body: JSON.stringify({ username, password }),
     });
-    console.log(response);
+    if (response.ok) {
+      window.location.href = "/";
+    }
   }
   return (
     <form onSubmit={handleSubmit}>
