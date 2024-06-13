@@ -1,6 +1,14 @@
 import { cookies } from "next/headers";
 
-export async function POST() {
+import type { NextRequest } from "next/server";
+
+type Body = {
+	username: string;
+	password: string;
+};
+
+export async function POST(request: NextRequest) {
+	const body = (await request.json()) as Body;
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 	const response = await fetch(`${baseUrl}`, {
 		method: "POST",
@@ -8,8 +16,8 @@ export async function POST() {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			username: "dog",
-			password: "dog",
+			username: body.username,
+			password: body.password,
 		}),
 	});
 	if (!response.ok) {
