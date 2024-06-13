@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-export async function GET() {
+export async function POST() {
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 	const response = await fetch(`${baseUrl}`, {
 		method: "POST",
