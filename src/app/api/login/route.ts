@@ -1,5 +1,6 @@
 export async function GET() {
-	const response = await fetch("https://api.origamid.online/conta/login", {
+	const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+	const response = await fetch(`${baseUrl}`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
